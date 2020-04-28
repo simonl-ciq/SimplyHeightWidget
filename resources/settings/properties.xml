@@ -1,0 +1,20 @@
+<resources>
+	<properties>
+
+		<property id="altMsg" type="string"><!-- Altitude subtitle -->Above Sea Level</property>
+		<property id="htMsg" type="string"><!--  Height subtitle -->Above Ground Level</property>
+	</properties>
+	<strings>
+		<string id="altMsgTitle">Altitude screen subtitle</string>
+		<string id="htMsgTitle">Height screen subtitle</string>
+		<string id="msgErr">That's too long</string>
+	</strings>
+	<settings>
+		<setting propertyKey="@Properties.altMsg" title="@Strings.altMsgTitle">
+			<settingConfig type="alphaNumeric"  maxLength="32" errorMessage="@Strings.msgErr"/>
+		</setting>
+		<setting propertyKey="@Properties.htMsg" title="@Strings.htMsgTitle">
+			<settingConfig type="alphaNumeric" maxLength="32" errorMessage="@Strings.msgErr"/>
+		</setting>
+	</settings>
+</resources>

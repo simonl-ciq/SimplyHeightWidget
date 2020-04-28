@@ -1,0 +1,8 @@
+<layouts>
+    <!-- A generic, centered layout. -->
+    <layout id="MainLayout">
+        <label id="title" x="center" y="10" color="Gfx.COLOR_WHITE" justification="Gfx.TEXT_JUSTIFY_CENTER" font="Gfx.FONT_SMALL" />
+        <label id="subtitle" x="center" y="20" color="Gfx.COLOR_WHITE" justification="Gfx.TEXT_JUSTIFY_CENTER" font="Gfx.FONT_XTINY" />
+        <label id="value" x="center" y="center" color="Gfx.COLOR_WHITE" justification="Gfx.TEXT_JUSTIFY_CENTER" font="Gfx.FONT_NUMBER_THAI_HOT" />
+    </layout>
+</layouts>
