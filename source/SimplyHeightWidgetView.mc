@@ -18,10 +18,6 @@ class SimplyHeightWidgetView extends Ui.View {
 	hidden var mBase = 0;
     hidden var mAltMsg;
     hidden var mHtMsg;
-/*
-	hidden var mMin = 0;
-	hidden var mMax = 0;
-*/
 
     function initialize() {
     	var tmp;
@@ -40,20 +36,7 @@ class SimplyHeightWidgetView extends Ui.View {
     	} else {
     		mAGL = tmp;
     	}
-/*
-        tmp = Storage.getValue("min");
-        if (tmp == null) {
-	        Storage.setValue("min", mMin);
-    	} else {
-    		mMin = tmp;
-    	}    
-        tmp = Storage.getValue("max");
-        if (tmp == null) {
-	        Storage.setValue("max", mMax);
-    	} else {
-    		mMax = tmp;
-    	}
-*/
+
 // We know application uses Properties as this app is only for 2.4.0 and above
         tmp = Properties.getValue("altMsg");
 	    mAltMsg = (tmp == null) ? cAltMsg : tmp;
@@ -62,31 +45,6 @@ class SimplyHeightWidgetView extends Ui.View {
 
         View.initialize();
     }
-
-/*
-    function updateZero() {
-    	var sensorInfo = Sensor.getInfo();
-    	if (sensorInfo.altitude != null) {
-			var alt = sensorInfo.altitude;
-    		mTitle = "Height ("+ (mNotMetric ? "ft" : "m") + ")";
-			mBase = Math.round(alt * mConvert);
-	        View.findDrawableById("title").setText(mTitle);
-   	    } else {
-			View.findDrawableById("title").setText(mTitle + "\n(can't zero)");
-			View.findDrawableById("value").setText("0000");
-       	}
-        Storage.setValue("base", mBase);
-//Sys.println("mBase now set: " + mBase);
-    }
-    
-    function resetZero() {
-       	mBase = 0;
-   		mTitle = "Altitude ("+ (mNotMetric ? "ft" : "m") + ")";
-        View.findDrawableById("title").setText(mTitle);
-        Storage.setValue("base", mBase);
-//Sys.println("mBase now reset: " + mBase);
-    }
-*/
 
     function toggleZero() {
     	if (!mAGL) {
@@ -115,12 +73,6 @@ class SimplyHeightWidgetView extends Ui.View {
 //mBase = 0;
         Storage.setValue("AGL", mAGL);
         Storage.setValue("base", mBase);
-/*
-        mMin = mBase;
-        mMax = mBase;
-		Storage.setValue("min", mMin);
-		Storage.setValue("max", mMax);
-*/
     }
 
     // Load your resources here
@@ -149,18 +101,9 @@ class SimplyHeightWidgetView extends Ui.View {
     	if (sensorInfo.altitude != null) {
    			var alt = sensorInfo.altitude;
    			alt = Math.round(alt * mConvert);
-/*   			if (alt < mMin) {
-   				mMin = alt;
-   				Storage.setValue("min", mMin);
-   			}
-   			if (alt > mMax) {
-   				mMax = alt;
-   				Storage.setValue("max", mMax);
-   			}
-*/
-       		var agl = ((alt - mBase).toNumber()).toString();
+       		var val = ((alt - mBase).toNumber()).toString();
 //agl = "612";
-			View.findDrawableById("value").setText(agl);
+			View.findDrawableById("value").setText(val);
    	    } else {
 			View.findDrawableById("title").setText(mTitle + "\nnot available");
 			View.findDrawableById("subtitle").setText("");

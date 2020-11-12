@@ -3,6 +3,11 @@ using Toybox.System as Sys;
 using Toybox.Timer;
 
 /*
+	var myTimer;
+	var myCount;
+	
+    myTimer = new Timer.Timer();
+    
 	function timerCallback() {
     	myCount += 1;
 	    if (myCount >= 10) {
