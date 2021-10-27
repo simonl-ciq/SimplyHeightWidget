@@ -74,7 +74,6 @@ class SimplyHeightWidgetView extends Ui.View {
         Storage.setValue("AGL", mAGL);
         Storage.setValue("base", mBase);
     }
-
     // Load your resources here
     function onLayout(dc) {
 //Sys.println("onLayout");
